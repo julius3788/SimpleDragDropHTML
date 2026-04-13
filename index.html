@@ -13,14 +13,19 @@
         <!--List 1-->
         <div class="list" id="list1">
     <h2>To Do</h2>
-    <div class="card" draggable="true" id="card1">Wash Dishes</div>
-<div class="card" draggable="true" id="card2">Buy Groceries</div>
+     <div class="add-card">
+        <input type="text" id="newCardText" placeholder="New task...">
+        <button onclick="addCard()">Add</button>
+    </div>
+
+    <div class="card" draggable="true" id="card1">Wash Dishes<span class="delete-btn">×</span></div>
+<div class="card" draggable="true" id="card2">Buy Groceries<span class="delete-btn">×</span></div>
         </div>
 
         <!-- List2 -->
 <div class="list" id="list2">
     <h2>In Progress</h2>
-    <div class="card" draggable="true" id="card3">Learn Code</div>
+    <div class="card" draggable="true" id="card3">Learn Code<span class="delete-btn">×</span></div>
 </div>
         <!-- list3 -->
 <div class="list" id="list3">

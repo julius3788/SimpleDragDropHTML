@@ -52,6 +52,7 @@ h1 {
 
 .card {
 background-color: white;
+position: relative;
 color: #333;
 padding: 1rem;
 margin-bottom: 10px;
@@ -67,8 +68,47 @@ transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
 }
 
+.card:hover {
+    background-color: #f0f0f0;
+}
+
 .list.over{
     background-color: #d1d3d8;
+}
+
+.add-card {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.add-card input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.add-card button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-card button:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
 }
 
 @media (max-width:768px) {

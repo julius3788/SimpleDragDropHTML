@@ -46,3 +46,63 @@ function dragLeave(e) {
    this.classList.remove("over");
 
 }
+
+let cardCounter = 4;
+
+function addCard() {
+    const input = document.getElementById("newCardText");
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    const newCard = document.createElement("div");
+    newCard.classList.add("card");
+    newCard.setAttribute("draggable", "true");
+
+    newCard.id = "card" + cardCounter++;
+    newCard.textContent = text;
+
+    // tombol delete
+    const deleteBtn = document.createElement("span");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.textContent = "×";
+
+    newCard.appendChild(deleteBtn);
+
+    // drag event
+    newCard.addEventListener("dragstart", dragStart);
+    newCard.addEventListener("dragend", dragEnd);
+
+    document.getElementById("list1").appendChild(newCard);
+
+    input.value = "";
+}
+
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete-btn")) {
+        const card = e.target.parentElement;
+
+        const confirmDelete = confirm("Are you sure you want to delete this card?");
+        
+        if (confirmDelete) {
+            card.remove();
+        }
+    }
+});
+
+document.addEventListener("dblclick", function(e) {
+    if (e.target.classList.contains("card")) {
+
+        const card = e.target;
+
+        // ambil text tanpa tombol delete
+        const currentText = card.childNodes[0].nodeValue.trim();
+
+        const newText = prompt("Edit your task:", currentText);
+
+        if (newText !== null && newText.trim() !== "") {
+            // update text tanpa menghapus tombol delete
+            card.childNodes[0].nodeValue = newText + " ";
+        }
+    }
+});
